@@ -1,0 +1,284 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Desarrollo Web</title>
+
+    <style>
+        /* Reseteo de márgenes y rellenos, y establece la fuente predeterminada como sans-serif */
+        * {
+            margin: 0; /* Establece el margen exterior a 0 */
+            padding: 0; /* Establece el relleno a 0 */
+            font-family: sans-serif; /* Define la fuente predeterminada */
+        }
+
+        /* Establece el tamaño y la altura de la imagen del logotipo en la barra de navegación */
+        .logo {
+            width: 8%; /* Establece el ancho del logotipo al 8% del contenedor padre */
+            height: 5%; /* Establece la altura del logotipo al 5% del contenedor padre */
+        }
+
+        /* Estilos para la barra de navegación */
+        .barra {
+            position: relative; /* Establece la posición relativa con respecto a su posición normal */
+            width: 100%; /* Establece el ancho al 100% del contenedor padre */
+            height: 100%; /* Establece la altura al 100% del contenedor padre */
+            background: #eff4fd; /* Establece el color de fondo */
+        }
+
+        /* Estilos para la navegación dentro de la barra */
+        nav {
+            display: flex; /* Establece el modelo de caja flexible para el contenedor de navegación */
+            width: 84%; /* Establece el ancho al 84% del contenedor padre */
+            margin: auto; /* Centra el contenedor horizontalmente */
+            padding: 20px 0; /* Establece el relleno superior e inferior a 20px y el relleno izquierdo-derecho a 0 */
+            align-items: center; /* Alinea los elementos verticalmente en el centro */
+            justify-content: space-between; /* Distribuye el espacio entre los elementos */
+            position: relative; /* Establece la posición relativa para que z-index funcione */
+            z-index: 2; /* Establece la propiedad z-index a 2 para que la barra de navegación esté en un nivel superior */
+        }
+
+        /* Estilos para cada elemento de la lista en la barra de navegación */
+        nav ul li {
+            display: inline-block; /* Convierte la lista en elementos en línea con margen y relleno */
+            list-style: none; /* Elimina los estilos de la lista (viñetas) */
+            margin: 10px 20px; /* Establece el margen superior e inferior a 10px y el margen izquierdo-derecho a 20px */
+        }
+
+        /* Estilos para los enlaces dentro de la lista de navegación */
+        nav ul li a {
+            text-decoration: none; /* Elimina la decoración de subrayado del enlace */
+            color: #000; /* Establece el color del texto a negro */
+            font-weight: bold; /* Establece el peso de la fuente a negrita */
+        }
+
+        /* Cambia el color del enlace al pasar el mouse sobre él */
+        nav ul li a:hover {
+            color: red; /* Cambia el color del texto a rojo al pasar el mouse */
+        }
+
+        /* Estilos para la sección de detalles */
+        .detalle {
+            margin-left: 8%; /* Establece el margen izquierdo al 8% del contenedor padre */
+            margin-top: 15%; /* Establece el margen superior al 15% del contenedor padre */
+            position: relative; /* Establece la posición relativa para que z-index funcione */
+            z-index: 0; /* Establece la propiedad z-index a 0 para que .detalle esté en un nivel inferior que la imagen */
+        }
+
+        /* Estilos para el encabezado h1 en la sección de detalles */
+        .detalle h1 {
+            font-size: 50px; /* Establece el tamaño de la fuente a 50px */
+            color: #212121; /* Establece el color del texto a un tono de gris oscuro */
+            margin-bottom: 20px; /* Establece el margen inferior a 20px */
+        }
+
+        /* Establece el color de texto para el elemento span */
+        span {
+            color: orange; /* Establece el color del texto a naranja */
+        }
+
+        /* Estilos para el párrafo dentro de la sección de detalles */
+        .detalle p {
+            color: #555; /* Establece el color del texto a un tono de gris medio */
+            line-height: 22px; /* Establece la altura de línea a 22px */
+        }
+
+        /* Estilos para la sección de imagen */
+        .imagen {
+            width: 50%; /* Establece el ancho al 45% del contenedor padre */
+            height: 80%; /* Establece la altura al 80% del contenedor padre */
+            position:absolute ; /* Establece la posición absoluta */
+            bottom: 0; /* Establece la posición desde la parte inferior del contenedor padre */
+            right: 100px; /* Establece la posición desde el borde derecho del contenedor padre */
+            z-index: 1; /* Establece la propiedad z-index a 1 para que la imagen esté en un nivel superior que .detalle */
+        }
+
+        
+
+        /* Estilos para la imagen dentro de la sección de imagen */
+        .imagen img {
+            height: 100%; /* Establece la altura de la imagen al 100% del contenedor padre */
+            position: absolute; /* Establece la posición absoluta */
+            left: 50%; /* Establece la posición desde el borde izquierdo al 50% del contenedor padre */
+            bottom: 0; /* Establece la posición desde la parte inferior del contenedor padre */
+            transform: translateX(-50%); /* Centra la imagen horizontalmente */
+            transition: bottom 1s, left 1s; /* Establece una transición suave para cambios en la posición */
+        }
+
+        /* Cambia la posición de la forma al pasar el mouse sobre la imagen */
+        .imagen:hover .shape {
+            bottom: 40px; /* Cambia la posición desde la parte inferior a 40px al pasar el mouse */
+        }
+
+        /* Cambia la posición de ari al pasar el mouse sobre la imagen */
+        .imagen:hover .ari {
+            left: 45%; /* Cambia la posición desde el borde izquierdo al 45% al pasar el mouse */
+        }    
+        
+        .contenido {
+            display: flex;
+            justify-content: space-around; /* Espaciado uniforme entre los elementos */
+            align-items: center;
+            background: #f5f5f5;
+            padding: 2rem;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+        .foto_cam {
+            width: 200px;
+            height: 300px;
+            border-radius: 8px;
+        }
+        .info_p{
+            margin-left: 0px;
+        }
+        /* Estilo común para todos los div internos */
+        .info, .hobbies, .proyectos, .metas{
+            flex: 1; /* Distribuir el espacio de manera uniforme entre los div internos */
+            text-align: center;
+            padding: 1rem; /* Añadir un poco de espacio interno para mejorar la legibilidad */
+        }
+
+        h2 {
+            color: #555;
+            border-bottom: 2px solid #ffcc00; /*establece un borde inferior en la parte del elemento con un ancho de borde 2px y solid para que sea una linea solida*/
+            padding-bottom: 0.5rem;
+            margin-bottom: 1rem;
+        }
+
+        p {
+            color: #333;
+            line-height: 1.5;
+        }
+
+        .contacto {
+            text-align: center;
+            padding: 2rem;
+        }
+
+        h2 {
+            color: #333;
+            border-bottom: 2px solid #ffcc00;
+            padding-bottom: 0.5rem;
+            margin-bottom: 1rem;
+        }
+
+        .info-contacto {
+            display: flex;
+            align-items: center;
+            margin: 1rem 0;
+        }
+
+        .icono img {
+            width: 30px; /* Ajusta el tamaño del icono según sea necesario */
+            height: 30px;
+            margin-right: 10px;
+        }
+
+        p {
+            color: #333;
+            font-size: 16px;
+        }
+
+        a {
+            color: orange;
+            text-decoration: none;
+            font-weight: bold;
+        }
+        a:hover{
+            color: red;
+        }
+
+
+
+    </style>
+</head>
+<body>
+    <div class="barra"> 
+        <div class="imagen">
+            <img src="Shapeari.png" class="shape">
+            <img src="laarias.png" class="ari">
+        </div>
+        
+        <nav>
+            <img src="utm_logo.png" class="logo">
+            <ul>
+                <li><a href="#detalle">Inicio</a></li>
+                <li><a href="#contenido">Quién soy</a></li>
+                <li><a href="#contacto">Contacto</a></li>
+            </ul> 
+        </nav>
+
+        <div class="detalle">
+            <h1>Hola soy <span>Arianna</span></h1>
+            <p>Este es mi portafolio para la materia desarrollo de aplicaciones web
+                <br> Carrera de Ingeniería de Software
+            </p>
+        </div>
+       
+    </div>
+
+    <section class="contenido" id="contenido">
+        
+            <img src="campo.jpg" class="foto_cam">
+        </div>
+    <div class="info_p">
+        <div class="info">
+            <h2>¿Quién soy?</h2>
+            <p>Soy Arianna Aspiazu, originaria de Mocache en la provincia de Los Ríos. Actualmente, estudio Ingeniería de Software y tengo 20 años.</p>
+            <p>Disfruto pasar tiempo en casa con mi familia, contemplando el atardecer en el campo.</p>
+        </div>
+    
+        <div class="hobbies">
+            <h2>Hobbies</h2>
+            <p>En mis momentos libres, me gusta ver anime, series y películas. También realizo ejercicio físico de vez en cuando.</p>
+        </div>
+    
+        <div class="proyectos">
+            <h2>¿Qué proyectos he realizado?</h2>
+            <p>En mi carrera de Software, colaboré en la creación de una página web sobre la hidratación y alimentación correcta según las características del usuario.</p>
+            <p>Mediante este <a href="https://drive.google.com/file/d/1JuGf7Vf0stTgx2VSNXUdn_n3FXH72hf2/view?usp=sharing"> documento </a> 
+                puede leer nuestro proyecto HydroHealth que realizamos en cuarto semestre.
+            </p>
+        </div>
+
+        <div class="metas">
+            <h2>Metas</h2>
+            <p>Quisiera mejorar en el desarrollo web y la programación</p>
+            <p>Hacer un curso de Mysql en las vacaciones</p>
+            <p>Estudiar mucho para ganarme una beca!</p>
+            <p>Y sobretodo pasar el semestre con buenas calificaciones</p>
+        </div>
+    </div>
+    </section>
+
+    <section class="contacto" id="contacto">
+        <h2>Contacto</h2>
+        
+        <div class="info-contacto">
+            <div class="icono">
+                <img src="instagram.png" alt="Icono de Instagram">
+            </div>
+            <p>Instagram: <a href="https://www.instagram.com/misaelyasp/" target="_blank">@misaelyasp</a></p>
+        </div>
+    
+        <div class="info-contacto">
+            <div class="icono">
+                <img src="whatsapp.png" alt="Icono de WhatsApp">
+            </div>
+            <p>WhatsApp: <a href="tel:+593996995564">0996995564</a></p>
+        </div>
+    
+        <div class="info-contacto">
+            <div class="icono">
+                <img src="gmail.png" alt="Icono de Correo">
+            </div>
+            <p>Correo: <a href="mailto:aaspiazu8623@utm.edu.ec">aaspiazu8623@utm.edu.ec</a></p>
+        </div>
+    </section>
+    
+    
+</body>
+</html>
